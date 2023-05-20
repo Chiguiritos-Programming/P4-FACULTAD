@@ -3,17 +3,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def matrizFacultades(archivo: str):
+def matrizFacultades(archivo: str) -> pd.DataFrame:
     archivo = pd.read_csv(archivo, sep=',')
     return archivo
 
 
-def matrizPuestos(archivo: str):
+def matrizPuestos(archivo: str) -> pd.DataFrame:
     archivo = pd.read_csv(archivo, sep=',')
     return archivo
 
 
-def matrizDobles(archivo: str):
+def matrizDobles(archivo: str) -> pd.DataFrame:
     archivo = pd.read_csv(archivo, sep=',')
     return archivo
 
@@ -96,7 +96,7 @@ def ejecutar_cargar_matriz_dobles(ruta_archivo: str) -> list:
     return programas
 
 
-def puestosFacultad(puestos, facultad):
+def puestosFacultad(puestos: pd.DataFrame, facultad: str) -> int:
     fila_facultad = puestos.loc[puestos.iloc[:, 0] == facultad]
     lista_puestos = fila_facultad.values[:]
     suma_puestos = 0
@@ -106,7 +106,7 @@ def puestosFacultad(puestos, facultad):
     return suma_puestos
 
 
-def puestosOcupados(puestos, facultad):
+def puestosOcupados(puestos: pd.DataFrame, facultad: str) -> int:
     sumaOcupados = 0
     for faculty in puestos:
         if faculty == facultad:
